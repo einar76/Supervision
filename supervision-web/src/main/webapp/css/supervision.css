@@ -1,0 +1,67 @@
+
+body {
+    font-family: "Arial", Times, serif;
+}
+
+.table{
+    display: table;
+/*     width:50%; */
+    align:center;
+    margin-left:auto; 
+    margin-right:auto;
+}
+.row {
+    display: table-row;
+}
+.cell {
+    display: table-cell;
+}
+
+.cell.title {
+    text-align: right;
+    font-weight: bold;
+    width: 50%
+}
+
+.cell.value {
+    text-align: left;
+    font-weight: normal;
+    width: 50%
+}
+
+.row.header {
+    font-weight: bold;
+    text-align: center;
+}
+.row.body {
+    font-weight: normal;
+    text-align: center;
+}
+.cell.col {
+	min-width: 150px; 
+}
+
+.bar-legend { list-style: none; }
+.bar-legend li { float: left; margin-right: 10px; }
+.bar-legend li span { border: 1px solid #ccc; float: left; width: 12px; height: 12px; margin: 2px; }
+.pie-legend { list-style: none; }
+.pie-legend li { float: left; margin-right: 10px; }
+.pie-legend li span { border: 1px solid #ccc; float: left; width: 12px; height: 12px; margin: 2px; }
+
+.graphique {
+	width: 16px;
+	height: 16px;
+}
+
+.flag {
+	width: 32px;
+	height: 32px;
+	display:inline-block;
+    margin:0 0 0 0;
+    padding:5px 10px
+}
+
+#flagArea {
+	overflow:hidden;
+	text-align: center;
+}

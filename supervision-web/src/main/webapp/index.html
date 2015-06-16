@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+<meta charset="ISO-8859-1">
+<title>Supervision</title>
+<link rel="stylesheet" type="text/css" href="css/supervision.css">
+</head>
+<body ng-controller="SupervisionCtrl">
+
+<h1>{{title}}</h1>
+
+<div id="indicators">
+	<h2 ng-click="updateIndicators()">{{indicatorsTitle}}</h2>
+	<div class="table">
+		<div class="row" ng-repeat="indicator in indicators" >
+			<span ng-show="indicator.dynamic" class="cell title">{{indicator.name | translate}}&nbsp;<a href="./indicator.html?id={{indicator.id}}" target="_blank"><img class="graphique" src="./img/graph-96x96.png" /></a>&nbsp;:&nbsp;</span>
+			<span ng-hide="indicator.dynamic" class="cell title">{{indicator.name | translate}}&nbsp;:&nbsp;</span>
+			<span class="cell value">{{indicator.value}}</span>
+		</div>
+	</div>
+</div>
+<div id="requests">
+	<h2 ng-click="updateRequests()" >{{requestsTitle}}</h2>
+	<div class="table">
+		<div class="row"><span class="cell title">{{'TOTALNUMBER' | translate}}&nbsp;<a href="./requests.html" target="_blank"><img class="graphique" src="./img/graph-96x96.png" /></a>&nbsp;:&nbsp;</span><span class="cell value">{{nbTotalReq}}</span></div>
+		<div class="row"><span class="cell title">{{'TOTALSUCCED' | translate}}&nbsp;:&nbsp;</span><span class="cell value">{{nbOkReq}}</span></div>
+		<div class="row"><span class="cell title">{{'ERRORRATIO' | translate}}&nbsp;:&nbsp;</span><span class="cell value">{{errorRatioReq}} %</span></div>
+		<div class="row"><span class="cell title">{{'MINDURATION' | translate}}&nbsp;:&nbsp;</span><span class="cell value">{{minDurationReq}} ms</span></div>
+		<div class="row"><span class="cell title">{{'MAXDURATION' | translate}}&nbsp;:&nbsp;</span><span class="cell value">{{maxDurationReq}} ms</span></div>
+		<div class="row"><span class="cell title">{{'AVGDURATION' | translate}}&nbsp;:&nbsp;</span><span class="cell value">{{avgDurationReq}} ms</span></div>
+	</div>
+</div>
+<div id="sessions">
+	<h2 ng-click="updateSessions()" >{{sessionsTitle}}</h2>
+	<div class="table">
+		<div class="row" ><span class="cell title">{{'TOTALNUMBER' | translate}}&nbsp;<a href="./sessions.html" target="_blank"><img class="graphique" src="./img/graph-96x96.png" /></a>&nbsp;:&nbsp;</span><span class="cell value">{{nbTotalSes}}</span></div>
+		<div class="row" ><span class="cell title">{{'NBOPENED' | translate}}&nbsp;:&nbsp;</span><span class="cell value">{{nbOpenedSes}}</span></div>
+		<div class="row" ><span class="cell title">{{'MINDURATION' | translate}}&nbsp;:&nbsp;</span><span class="cell value">{{minDurationSes}} ms</span></div>
+		<div class="row" ><span class="cell title">{{'MAXDURATION' | translate}}&nbsp;:&nbsp;</span><span class="cell value">{{maxDurationSes}} ms</span></div>
+		<div class="row" ><span class="cell title">{{'AVGDURATION' | translate}}&nbsp;:&nbsp;</span><span class="cell value">{{avgDurationSes}} ms</span></div>
+	</div>
+</div>
+<div id="resources">
+	<h2 ng-click="updateResources()" >{{resourcesTitle}}</h2>
+	<div class="table">
+		<div class="row header" >
+			<span class="cell col">{{'NAME' | translate}}</span>
+			<span class="cell col">{{'CALL' | translate}}</span>
+			<span class="cell col">{{'TOTAL' | translate}}</span>
+			<span class="cell col">{{'MIN' | translate}}</span>
+			<span class="cell col">{{'MAX' | translate}}</span>
+			<span class="cell col">{{'AVG' | translate}}</span>
+			<span class="cell col">{{'DURATION' | translate}}</span>
+			<span class="cell col">{{'STATE' | translate}}</span>
+			<span class="cell col">{{'COMMENT' | translate}}</span>
+		</div>
+		<div class="row body" ng-repeat="resource in resources">
+			<span class="cell">{{resource.name}}&nbsp;<a href="./resource.html?id={{resource.id}}" target="_blank"><img class="graphique" src="./img/graph-96x96.png" /></a></span>
+			<span class="cell">{{resource.execution.nbCall}}</span>
+			<span class="cell">{{resource.execution.totalTime}} ms</span>
+			<span class="cell">{{resource.execution.minTime}} ms</span>
+			<span class="cell">{{resource.execution.maxTime}} ms</span>
+			<span class="cell">{{resource.execution.avgTime}} ms</span>
+			<span class="cell">{{resource.lastDuration}} ms</span>
+			<span class="cell">{{resource.lastState | booleanFilter}}</span>
+			<span class="cell">{{resource.lastComment}}</span>
+		</div>
+	</div>
+</div>
+
+<div id="flagArea">
+	<span ng-click="changeLanguage('en')"><img class="flag" src="./img/flags/EN-128x128.png" /></span>
+	<span ng-click="changeLanguage('fr')"><img class="flag" src="./img/flags/FR-128x128.png" /></span>
+	<span ng-click="changeLanguage('de')"><img class="flag" src="./img/flags/DE-128x128.png" /></span>
+	<span ng-click="changeLanguage('it')"><img class="flag" src="./img/flags/IT-128x128.png" /></span>
+	<span ng-click="changeLanguage('es')"><img class="flag" src="./img/flags/ES-128x128.png" /></span>
+</div>
+
+<script src="./js/vendor/angularjs/1.2.28/angular.min.js"></script>
+<script src="./js/vendor/angular-translate/2.7.0/angular-translate.min.js"></script>
+<script src="./js/vendor/chartjs/1.0.2/Chart.min.js"></script>
+<script src="./js/language.js"></script>
+<script src="./js/app.js"></script>
+
+</body>
+</html>

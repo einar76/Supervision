@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+          http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+          http://www.springframework.org/schema/tx
+          http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+
+	<tx:annotation-driven />
+
+	<bean id="sessionCounterListener" class="com.einar.supervision.listener.SessionCounterListener" />
+	
+	<bean id="testableServiceLauncher" init-method="start" destroy-method="cleanUp" class="com.einar.supervision.TestableServiceLauncher" />
+	<bean id="dynamicIndicatorLauncher" init-method="start" destroy-method="cleanUp" class="com.einar.supervision.DynamicIndicatorLauncher" />
+	
+	<bean id="freeMemory" class="com.einar.supervision.indicator.impl.memory.FreeMemory" />
+	<bean id="totalMemory" class="com.einar.supervision.indicator.impl.memory.TotalMemory" />
+	<bean id="usedMemory" class="com.einar.supervision.indicator.impl.memory.UsedMemory" />
+	<bean id="jvmUptime" class="com.einar.supervision.indicator.impl.jvm.JvmUptime" />
+	<bean id="jvmVendor" class="com.einar.supervision.indicator.impl.jvm.JvmVendor" />
+	<bean id="jvmVersion" class="com.einar.supervision.indicator.impl.jvm.JvmVersion" />
+	<bean id="osName" class="com.einar.supervision.indicator.impl.os.OsName" />
+	<bean id="osArch" class="com.einar.supervision.indicator.impl.os.OsArch" />
+	<bean id="osVersion" class="com.einar.supervision.indicator.impl.os.OsVersion" />
+	<bean id="buildVersion" class="com.einar.supervision.indicator.impl.build.BuildVersion" />
+	<bean id="buildDate" class="com.einar.supervision.indicator.impl.build.BuildDate" />
+	<bean id="buildRevision" class="com.einar.supervision.indicator.impl.build.BuildRevision" />
+	
+</beans>

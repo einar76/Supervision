@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+<meta charset="ISO-8859-15">
+<title>Supervision</title>
+<link rel="stylesheet" type="text/css" href="css/supervision.css">
+</head>
+<body ng-controller="requestsChartsCtrl">
+
+	<h1>{{'REQUEST_TITLE' | translate}}</h1>
+
+	<h2 ng-click="updateHistorisation()">{{'REQUEST_SUBTITLE1' | translate}}</h2>
+	<canvas id="myChart" width="1600" height="400"></canvas>
+	<div id="legend1"></div>
+	</br>
+
+	<h2 ng-click="updateHistorisation()">{{'REQUEST_SUBTITLE2' | translate}}</h2>
+	<canvas id="myDonutChart" width="400" height="400"></canvas>
+	<div id="legend2"></div>
+
+	<script src="./js/vendor/angularjs/1.2.28/angular.min.js"></script>
+	<script src="./js/vendor/angular-translate/2.7.0/angular-translate.min.js"></script>
+	<script src="./js/vendor/chartjs/1.0.2/Chart.min.js"></script>
+	<script src="./js/constante.js"></script>
+	<script src="./js/language.js"></script>
+	<script src="./js/requestsCharts.js"></script>
+
+</body>
+</html>

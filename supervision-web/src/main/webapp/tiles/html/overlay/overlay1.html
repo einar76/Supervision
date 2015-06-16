@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+<meta charset="ISO-8859-1">
+<title>Supervision</title>
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+</head>
+<body ng-controller="TilesCtrl">
+
+	<div class="north" ng-include="'../template/overlay/entete.html'"></div>
+	<div class="west" ng-include="'../template/overlay/menu.html'"></div>
+	<div class="east" ng-include="'../template/overlay/contact.html'"></div>
+	<div class="center" ui-view></div>
+	<div class="south" ng-include="'../template/overlay/pied.html'"></div>
+
+  	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.28/angular.min.js"></script>
+  	<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
+    
+	<script src="../../js/app.js"></script>
+
+</body>
+</html>

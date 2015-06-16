@@ -1,0 +1,8 @@
+
+.north    { border : 0px solid #d3d3e3;margin:0;  padding:1em; background-color: #F5F0F5; text-align: center;}       
+.south    { border : 0px solid #d3d3e3;margin:0;  padding:1em; background-color: #F5F0F5; text-align: center;}           
+.west     { border : 0px solid #d3d3e3;margin:0;  padding:1em; background-color: #FFF0F5; overflow:hidden;  width:10%; height:30em; float:left; margin-right:1.1em } 
+.east     { border : 0px solid #d3d3e3;margin:0;  padding:1em; background-color: #FFF0F5; overflow:hidden;  width:10%; height:30em; float:right; margin-left:1.1em }              
+.center   { border : 0px solid #d3d3e3;margin:0;  padding:1em; padding-bottom:0em; }   
+ 
+.center:after    { content:' '; clear:both; display:block; height:0; overflow:hidden }   

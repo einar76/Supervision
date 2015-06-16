@@ -1,0 +1,55 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans     
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
+
+	<context:component-scan base-package="com.einar.supervision.controller" />
+
+	<mvc:annotation-driven />
+	
+	<import resource="classpath:supervision-api-context.xml"/>
+	<import resource="classpath:supervision-business-context.xml"/>
+	<import resource="classpath:supervision-dao-context.xml"/>
+	<import resource="classpath:supervision-hibernate-context.xml"/>
+	
+	<bean id="service1" class="com.einar.supervision.service.Service1" />
+	<bean id="service2" class="com.einar.supervision.service.Service2" />
+	<bean id="service3" class="com.einar.supervision.service.Service3" />
+	<bean id="service4" class="com.einar.supervision.service.Service4" />
+
+	<bean id="servicesToTest" class="java.util.ArrayList">
+		<constructor-arg>
+			<list>
+				<ref bean="service1" />
+				<ref bean="service2" />
+				<ref bean="service3" />
+				<ref bean="service4" />
+			</list>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="indicatorsToTest" class="java.util.ArrayList">
+		<constructor-arg>
+			<list>
+				<ref bean="buildVersion" />
+				<ref bean="buildDate" />
+				<ref bean="buildRevision" />
+				<ref bean="freeMemory" />
+				<ref bean="totalMemory" />
+				<ref bean="usedMemory" />
+				<ref bean="jvmUptime" />
+				<ref bean="jvmVendor" />
+				<ref bean="jvmVersion" />
+				<ref bean="osName" />
+				<ref bean="osArch" />
+				<ref bean="osVersion" />
+			</list>
+		</constructor-arg>
+	</bean>
+</beans>
